@@ -6,8 +6,11 @@ namespace SSIS_Searcher
 {
     class Program
     {
-        string SSISPackagePath = @"C:\PTS_Workspace\PTSApplication\SSIS_Packages";
+        //string SSISPackagePath = @"C:\PTS_Workspace\PTSApplication\SSIS_Packages";     //SSIS packages file location
+        string SSISPackagePath = @"C:\PTS_Workspace\PTSApplication\SSRS_Packages";   //SSRS reports file location
         string tableListDoc = @"C:\Users\tgod904\source\repos\SSIS_Searcher\files\table_list.txt";
+
+
         List<string> tableNameList;
 
         static void Main(string[] args)
@@ -24,7 +27,8 @@ namespace SSIS_Searcher
         //location.  Put them in a list of strings
         public void SSISPackageLoop()
         {
-            string[] files = System.IO.Directory.GetFiles(SSISPackagePath, "*.dtsx");
+            //string[] files = System.IO.Directory.GetFiles(SSISPackagePath, "*.dtsx");   //SSIS packages
+            string[] files = System.IO.Directory.GetFiles(SSISPackagePath, "*.rdl");    //SSRS reports
             string fullOutputPath = @"C:\Users\tgod904\source\repos\SSIS_Searcher\files\output.txt";
             StreamWriter writer = new StreamWriter(fullOutputPath);
 
